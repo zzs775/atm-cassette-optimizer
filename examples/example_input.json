@@ -1,0 +1,25 @@
+{
+  "cassette_count": 3,
+  "denominations": [
+    50,
+    20,
+    10
+  ],
+  "cassette_capacity": 20,
+  "total_note_limit": 40,
+  "initial_cash_limit": 2000,
+  "withdrawals": [
+    60,
+    80,
+    40,
+    70
+  ],
+  "penalties": [
+    100,
+    100,
+    100,
+    100
+  ],
+  "transport_cost_per_note": 1,
+  "load_cost_per_cassette": 5
+}

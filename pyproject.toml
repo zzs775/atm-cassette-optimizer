@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atm-optimizer"
+version = "0.1.0"
+description = "ATM cassette loading and dispense optimizer (standard library only)"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+atm-optimizer = "atm_optimizer.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["atm_optimizer*"]

@@ -1,0 +1,231 @@
+{
+  "bounds": {
+    "lower_bound": [
+      0,
+      21,
+      250,
+      11
+    ],
+    "upper_bound": [
+      0,
+      21,
+      250,
+      11
+    ]
+  },
+  "explored_states": 12965,
+  "input": {
+    "cassette_capacity": 20,
+    "cassette_count": 3,
+    "denominations": [
+      10,
+      20,
+      50
+    ],
+    "initial_cash_limit": 2000,
+    "load_cost_per_cassette": 5,
+    "penalties": [
+      100,
+      100,
+      100,
+      100
+    ],
+    "search_budget": null,
+    "total_note_limit": 40,
+    "transport_cost_per_note": 1,
+    "withdrawals": [
+      60,
+      80,
+      40,
+      70
+    ]
+  },
+  "objectives": {
+    "dispensed_notes": 11,
+    "initial_cash_used": 250,
+    "penalty_total": 0,
+    "transport_reload_cost": 21
+  },
+  "objectives_basis": {
+    "dispensed_notes": {
+      "formula": "sum over satisfied withdrawals of sum(dispensed)",
+      "per_withdrawal": [
+        {
+          "dispensed_notes": 3,
+          "index": 0,
+          "satisfied": true
+        },
+        {
+          "dispensed_notes": 4,
+          "index": 1,
+          "satisfied": true
+        },
+        {
+          "dispensed_notes": 2,
+          "index": 2,
+          "satisfied": true
+        },
+        {
+          "dispensed_notes": 2,
+          "index": 3,
+          "satisfied": true
+        }
+      ],
+      "value": 11
+    },
+    "initial_cash_used": {
+      "formula": "sum(denomination[i] * initial_counts[i])",
+      "per_cassette": [
+        {
+          "cassette": 0,
+          "count": 0,
+          "denomination": 0,
+          "value": 0
+        },
+        {
+          "cassette": 1,
+          "count": 10,
+          "denomination": 20,
+          "value": 200
+        },
+        {
+          "cassette": 2,
+          "count": 1,
+          "denomination": 50,
+          "value": 50
+        }
+      ],
+      "value": 250
+    },
+    "penalty_total": {
+      "failed_indices": [],
+      "formula": "sum(penalties[i] for every unsatisfied withdrawal i)",
+      "value": 0
+    },
+    "transport_reload_cost": {
+      "formula": "transport_cost_per_note * sum_initial_counts + load_cost_per_cassette * used_cassettes",
+      "initial_notes": 11,
+      "load_cost_per_cassette": 5,
+      "transport_cost_per_note": 1,
+      "used_cassettes": 2,
+      "value": 21
+    }
+  },
+  "optimal": true,
+  "plan": {
+    "denomination_vector": [
+      0,
+      20,
+      50
+    ],
+    "initial_counts_vector": [
+      0,
+      10,
+      1
+    ],
+    "withdrawals": [
+      {
+        "amount": 60,
+        "denomination_vector": [
+          0,
+          20,
+          50
+        ],
+        "dispensed": [
+          0,
+          3,
+          0
+        ],
+        "index": 0,
+        "satisfied": true,
+        "stock_after": [
+          0,
+          7,
+          1
+        ],
+        "stock_before": [
+          0,
+          10,
+          1
+        ]
+      },
+      {
+        "amount": 80,
+        "denomination_vector": [
+          0,
+          20,
+          50
+        ],
+        "dispensed": [
+          0,
+          4,
+          0
+        ],
+        "index": 1,
+        "satisfied": true,
+        "stock_after": [
+          0,
+          3,
+          1
+        ],
+        "stock_before": [
+          0,
+          7,
+          1
+        ]
+      },
+      {
+        "amount": 40,
+        "denomination_vector": [
+          0,
+          20,
+          50
+        ],
+        "dispensed": [
+          0,
+          2,
+          0
+        ],
+        "index": 2,
+        "satisfied": true,
+        "stock_after": [
+          0,
+          1,
+          1
+        ],
+        "stock_before": [
+          0,
+          3,
+          1
+        ]
+      },
+      {
+        "amount": 70,
+        "denomination_vector": [
+          0,
+          20,
+          50
+        ],
+        "dispensed": [
+          0,
+          1,
+          1
+        ],
+        "index": 3,
+        "satisfied": true,
+        "stock_after": [
+          0,
+          0,
+          0
+        ],
+        "stock_before": [
+          0,
+          1,
+          1
+        ]
+      }
+    ]
+  },
+  "search_budget": null,
+  "status": "optimal"
+}
